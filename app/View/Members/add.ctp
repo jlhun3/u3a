@@ -47,6 +47,16 @@
 			<td class="heading">Mobile Number: </td> 
 			<td class="data"><?php echo $this->Form->input('Member.member_mobile', array('label' =>'','size'=>'30'));?></td> 
 		</tr>
+
+
+
+        <tr>
+            <td class="heading">Tester For GITHUB Sync </td>
+            <td class="data"><?php echo $this->Form->input('Member.member_mobile', array('label' =>'','size'=>'30'));?></td>
+        </tr>
+
+
+
 	</table>
 	<div id="submitButtons">
 		<button type="submit">Add Member <?php echo $this->Form->end(); ?></button>
