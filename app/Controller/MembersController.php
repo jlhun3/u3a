@@ -138,8 +138,7 @@ class MembersController extends AppController {
 				          "controller" => "Members", 
 				          "action" => "add_account/",
 				          "?" => array(
-				              "id" => $this->Member->id,
-							  "email" => $this->Member->id
+				              "id" => $this->Member->id
 				          ),
 				          $data_can_be_passed_here
 				    ),
@@ -154,6 +153,7 @@ class MembersController extends AppController {
 	}
 
 	public function add_account() {
+		$this->set('members', $this->paginate());
 		if ($this->request->is('post')) {
 			debug($this->data);
 			$this->Member->User->create();

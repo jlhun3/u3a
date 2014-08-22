@@ -1,44 +1,66 @@
 
 <div class="members_form">
 	<?php 
-		echo $this->Form->create('User', array('enctype' => 'multipart/form-data', 'novalidate' => true)); 
+		echo $this->Form->create('Member', array('enctype' => 'multipart/form-data', 'novalidate' => true)); 
 	?>
 
 	<h2><?php echo __('Add User'); ?></h2>
 
 	<table cellpadding='0' cellspacing='1' width='100%'>
+
 		<?php
-		    $random = substr( md5(rand()), 0, 7);
 		    $id = $this->params['url']['id'];
 		    
-		    // echo $id;
+		    foreach ($members as $member):
+			if ($member['Member']['id'] == $id) {
+				$email = $member['Member']['member_email'];
+				$password = $member['Member']['member_gname'] . $member['Member']['member_fname'];
+			}
+			endforeach;
 		?>
 
 		<tr> 
 			<td class="heading">Member ID: </td> 
-			<td class="data"><?php echo $this->Form->input('User.member_id', array('label' =>'', 'type' => 'text', 'value' => $id)); ?></td> 
-		</tr>
-		<tr>
-			<td class="heading">Username: </td> 
-			<td class="data"><?php echo $this->Form->input('User.username', array('label' =>'', 'value' => $random));?></td> 
+			<td class="data"><?php echo $this->Form->input('User.member_id', 
+				array('label' =>'', 'type' => 'text', 'value' => $id, 'disabled' => 'disabled')); ?>
+			</td>
 		</tr>
 		<tr>
 			<td class="heading">Email: </td> 
-			<td class="data"><?php echo $this->Form->input('User.email', array('label' =>'', 'value' => ''));?></td> 
+			<td class="data"><?php echo $this->Form->input('User.email', 
+				array('label' =>'', 'value' => $email, 'disabled' => 'disabled','size'=>'30'));?>
+			</td> 
 		</tr>
 		<tr>
 			<td class="heading">Password: </td> 
-			<td class="data"><?php echo $this->Form->input('User.password', array('label' =>'', 'value' => '123abc'));?></td> 
+			<td class="data"><?php echo $this->Form->input('User.password', 
+				array('label' =>'', 'type' => 'password', 'value' => $password, 'disabled' => 'disabled'));?>
+			</td> 
 		</tr>
 		<tr>
 			<td class="heading">Confirm Password: </td> 
-			<td class="data"><?php echo $this->Form->input('User.password_confirm', array('label' =>'', 'value' => '123abc'));?></td> 
+			<td class="data"><?php echo $this->Form->input('User.password_confirm', 
+				array('label' =>'', 'type' => 'password', 'value' => $password, 'disabled' => 'disabled'));?>
+			</td> 
 		</tr>
 		</tr>
 			<td class="heading">Role: </td> 
-			<td class="data"><?php echo $this->Form->input('User.role', array('label' =>'', 'value' => 'member'));?></td> 
+			<td class="data"><?php echo $this->Form->input('User.role', 
+			   	array('label' =>'', 
+			   		  'options' => array('member' => 'Member', 'teachingstaff' => 'Teaching Staff', 'officevolunteer' => 'Office Volunteer'),
+			   		  'value' => 'member'));?>
+			</td> 
 		</tr>
 	</table>
+
+	<?php
+		// this gets saved
+		echo $this->Form->hidden('User.member_id', array('value' => $id));
+		echo $this->Form->hidden('User.email', array('value' => $email));
+		echo $this->Form->hidden('User.password', array('value' => $password));
+		echo $this->Form->hidden('User.password_confirm', array('value' => $password));
+	?>
+
 	<div id="submitButtons">
 		<button type="submit">Add Member <?php echo $this->Form->end(); ?></button>
 	</div>

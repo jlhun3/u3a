@@ -14,26 +14,6 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-        'username' => array(
-            'nonEmpty' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A username is required',
-				'allowEmpty' => false
-            ),
-			'between' => array( 
-				'rule' => array('between', 5, 15), 
-				'required' => true, 
-				'message' => 'Usernames must be between 5 to 15 characters'
-			),
-			 'unique' => array(
-				'rule'    => array('isUniqueUsername'),
-				'message' => 'This username is already in use'
-			),
-			'alphaNumericDashUnderscore' => array(
-				'rule'    => array('alphaNumericDashUnderscore'),
-				'message' => 'Username can only be letters, numbers and underscores'
-			),
-        ),
         'password' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
