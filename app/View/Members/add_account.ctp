@@ -63,5 +63,6 @@
 
 	<div id="submitButtons">
 		<button type="submit">Add Member <?php echo $this->Form->end(); ?></button>
+		<button><?php echo $this->Html->link('Skip', array('controller' => 'members', 'action' => 'index')); ?></button>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <!-- app/View/Users/add.ctp -->
 <div class="users form">
 
-<?php echo $this->Form->create('User', array('novalidate' => true));?>
+<?php echo $this->Form->create('User', array('enctype' => 'multipart/form-data', 'novalidate' => true));?>
     <fieldset>
         <legend><?php echo __('Add User'); ?></legend>
         <?php

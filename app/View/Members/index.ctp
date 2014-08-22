@@ -134,7 +134,7 @@
 				<div id="tabs4">
 					<div class="members form">
 						<?php 
-							echo $this->Form->create('Member', array('action'=>'add'), array('enctype' => 'multipart/form-data')); 
+							echo $this->Form->create('Member', array('enctype' => 'multipart/form-data', 'novalidate' => true)); 
 						?>
 						<h2><?php echo __('Add Member'); ?></h2>
 						<p></p>
@@ -180,15 +180,10 @@
 								<td class="data"><?php echo $this->Form->input('member_mobile', array('label' =>'','size'=>'30'));?></td> 
 							</tr> 
 						</table>
-
 						<div id="submitButtons">
 							<button type="submit">Add Member<?php echo $this->Form->end(); ?></button>
-							<button><?php echo $this->Html->link('Back', array('controller' => 'members', 'action' => 'index')); ?></button>
 						</div>
 					</div>
 				</div>
-
-
-
 			</div>
 		</div>

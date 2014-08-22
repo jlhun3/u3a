@@ -130,9 +130,9 @@ class MembersController extends AppController {
 		if ($this->request->is('post')) {
 			debug($this->data);
 			$this->Member->create();
-			if ($this->Member->saveAssociated($this->request->data, array('atomic' => false, 'deep' => true))) {
+			
+			if ($this->Member->save($this->request->data)) {
 				$this->Session->setFlash(__('The member has been saved'));
-				// $this->redirect(array('action' => 'add_account/', $last_insert_id = $this->Member->id));
 				$this->redirect(
 				    array(
 				          "controller" => "Members", 

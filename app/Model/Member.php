@@ -16,9 +16,9 @@ class Member extends AppModel {
 		'member_gname' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'You must provide your first name',
 				//'allowEmpty' => false,
-				//'required' => false,
+				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -26,7 +26,7 @@ class Member extends AppModel {
 		'member_fname' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'You must provide your family name',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -36,7 +36,7 @@ class Member extends AppModel {
 		'member_address' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'You must provide your address',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -46,7 +46,7 @@ class Member extends AppModel {
 		'member_postcode' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Please enter your postal address',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -56,7 +56,7 @@ class Member extends AppModel {
 		'member_email' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'An email is compulsory',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -66,7 +66,7 @@ class Member extends AppModel {
 		'member_phone' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Please enter your phone number',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -76,6 +76,7 @@ class Member extends AppModel {
 		'member_mobile' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
+				'message' => 'Please enter your mobile number',
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
