@@ -102,7 +102,7 @@ class UsersController extends AppController {
 		$this->set(compact('members'));
     }
 
-    public function delete($id = null) {
+    /* public function delete($id = null) {
 		
 		if (!$id) {
 			$this->Session->setFlash('Please provide a user id');
@@ -120,7 +120,29 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
-    }
+    } */
+	
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @throws MethodNotAllowedException
+ * @param string $id
+ * @return void
+ */
+	public function delete($id = null) {
+		$this->User->id = $id;
+		if (!$this->User->exists()) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->User->delete()) {
+			$this->Session->setFlash(__('User deleted'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Session->setFlash(__('User was not deleted'));
+		$this->redirect(array('action' => 'index'));
+	}
 	
 	public function activate($id = null) {
 		

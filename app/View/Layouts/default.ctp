@@ -63,7 +63,7 @@
     if($this->Session->check('Auth.User'))
     {
   ?>
-    <h3>Welcome, <?php $user = $this->Session->read('Auth.User'); echo $user['username']; ?>.</h3>
+    <h3>Welcome, <?php $user = $this->Session->read('Auth.User'); echo $user['Member']['member_gname']; ?>.</h3>
   <?php 
     }
 

@@ -25,9 +25,11 @@
 				if($is_superuser)
 				{
 					echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), 
-					null, __('Are you sure you want to delete # %s?', $user['User']['id'])); 
+					null, __('Are you sure you want to delete: %s?', 
+						$user['Member']['member_gname']." ".$user['Member']['member_mname']." ".$user['Member']['member_fname']."'s account")); 
 				}
 			?>
+
 
 		</td>
 	</tr>
